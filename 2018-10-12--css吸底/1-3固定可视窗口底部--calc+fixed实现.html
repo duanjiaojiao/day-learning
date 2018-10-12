@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>固定在可视窗口底部--calc实现</title>
+  <style type="text/css">
+    html,body {
+      height: 100%;
+    }
+    ul {
+      list-style: none;
+    }
+    li {
+      background: pink;
+      height: 500px;
+    }
+    .wrapper {
+      height: 100%;         /* 关键 */
+    }
+    .content {
+      height: calc(100%-100px);    /* 关键 */
+      overflow: scroll;
+    }
+    .footer {
+      position: fixed;        /* 关键 */
+      height: 100px;           /* 关键 */
+      background: blue;
+      bottom: 0;                 /* 关键 */
+      left: 0;                   /* 关键 */
+      right: 0;                  /* 关键 */
+    }
+    /*
+      chrome没好使，calc没认识
+    */
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <ul>
+        <li>数学</li>
+        <li>语文</li>
+        <li>英语</li>
+        <li>物理</li>
+        <li>化学</li>
+        <li>生物</li>
+      </ul>
+    </div>
+    <div class="footer">
+      固定在可视窗口底部
+    </div>
+  </div>
+</body>
+</html>

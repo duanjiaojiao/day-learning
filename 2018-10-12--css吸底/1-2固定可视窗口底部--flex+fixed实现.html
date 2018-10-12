@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>固定在可视窗口底部--flex+fixed方式</title>
+  <style type="text/css">
+    html,body {
+      height: 100%;
+    }
+    ul {
+      list-style: none;
+    }
+    li {
+      background: pink;
+      height: 500px;
+    }
+    .wrapper {
+      display: flex;            /* 关键 */
+      flex-direction: column;   /* 关键 */
+      min-height: 100%;         /* 希望wrapper即使content内容少，也能撑满整个页面高度;同时wraper高度还能随着content高度增加，可以高于可视窗口高度 */
+      position: relative;       /* 关键 */
+      padding-bottom: 100px;    /* 距底部高度>=footer的高度 */
+    }
+    .content {
+      flex: 1;
+    }
+    .footer {
+      position: fixed;        /* 关键 */
+      height: 100px;
+      background: blue;
+      bottom: 0;                 /* 关键 */
+      left: 0;                   /* 关键 */
+      right: 0;                  /* 关键 */
+    }
+    /*
+      缺点：
+      1、在ios如果有键盘会把底部撑起来
+      2、固定底部的部分需要定高度
+    */
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <ul>
+        <li>数学</li>
+        <li>语文</li>
+        <li>英语</li>
+        <li>物理</li>
+        <li>化学</li>
+        <li>生物</li>
+      </ul>
+    </div>
+    <div class="footer">
+      固定在可视窗口底部
+    </div>
+  </div>
+</body>
+</html>
